@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    ul,li{list-style: none;}
+}
+// 定义css预变量
+@main-color: #3da4fd; //主题色
+@bg-color: #ffffff; // 背景颜色
+@bd-color: #e2e9ea; //边框颜色
+@active-color: #53d3c8; //活跃字体颜色
+.bd-color{border: 1px solid @bd-color;}
+//浮动
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix:after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+//iview 样式复写
+#app{
+    .ivu-tabs-ink-bar{
+        background-color:@active-color;
+    }
+    .ivu-tabs-nav .ivu-tabs-tab-active{color: @active-color;}
+    .ivu-tabs-nav .ivu-tabs-tab{padding: 8px 5px;}
+    .ivu-tabs-bar{margin-bottom: 10px;}
+}

@@ -265,6 +265,7 @@
 				}
 			}
 
+
 			.username{
 				color: #fff;opacity: 0.5;font-size: 14px;
 				img{margin-left: 5px;}

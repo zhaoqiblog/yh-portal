@@ -206,7 +206,7 @@
 					{title:'新员工入职审批',author:'高小阳',description:'市场部/华东区/销售经理',date:'2018-02-26',area:'江苏'},
 					{title:'新员工入职审批',author:'高小阳',description:'市场部/华东区/销售经理',date:'2018-02-26',area:'江苏'},
 					{title:'新员工入职审批',author:'高小阳',description:'市场部/华东区/销售经理',date:'2018-02-26',area:'江苏'},
-					{title:'新员工入职审批',author:'高小阳',description:'市场部/华东区/销售经理',date:'2018-02-26',area:'江苏'},
+//					{title:'新员工入职审批',author:'高小阳',description:'市场部/华东区/销售经理',date:'2018-02-26',area:'江苏'},
 				],
 				initImgdata:[
 					{title:'永辉超市',imgs:require('../assets/downloadApp1.png'),imgCode:require('../assets/downloadApp1-code.png'),isShow:false},

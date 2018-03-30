@@ -14,6 +14,7 @@ export default {
 		financial:[], //财务专栏
 		hr:[],//Hr政策
 		newKnowledge:[], //最新知识
+		indexAllList:{},	//首页所有模块列表
 	},
 	mutations:{
 		addNoticeList(state,data){
@@ -21,6 +22,9 @@ export default {
 		},
 		updateNoticeList(state,data){
 			state.noticeList = data
+		},
+		updateIndexAllList(state,payload){
+			state.indexAllList = payload.data
 		}
 	},
 	actions:{
@@ -29,6 +33,9 @@ export default {
 		},
 		updateNoticeList({commit},data){
 			commit('updateNoticeList',data)
+		},
+		updateIndexAllList({commit},payload){
+			commit({type:'updateIndexAllList',data:payload.data})
 		}
 	}
 }

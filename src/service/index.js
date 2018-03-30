@@ -1,7 +1,7 @@
 import axios from "axios"
 import qs from "qs"
 
-axios.defaults.baseURL="https://hr.yh-test.com/mas-api/restful/inventory/"
+axios.defaults.baseURL="http://10.0.140.170:8088"
 axios.defaults.timeout=6000 //最长请求时间 ms
 axios.defaults.withCredentials=true //默认跨域
 axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest';

@@ -6,8 +6,24 @@
 </template>
 
 <script>
+	import http from './service'
+	import {mapState,mapActions} from 'vuex'
 export default {
-  name: 'App'
+  name: 'App',
+  computed:mapState({
+//  data: state => state.shop.supplement,
+    userGruop: state => state.user.userGruop
+  }),
+  
+  created(){
+//	http.get()
+		const obj={userNo:'',currentPage:1,pageSize:10}
+//		const geiNavObj={channel:1,groupCode:JSON.parse(sessionStorage.userGroup)[1].code,userNo:''}
+		this.$store.dispatch({type:"updateUserGroup",data:obj})
+//		console.log(this.userGruop)
+//		console.log(JSON.parse(sessionStorage.userGroup))
+		
+  }
 }
 </script>
 

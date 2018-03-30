@@ -1,17 +1,17 @@
 <template>
 	<!--<div class="lists">-->
 		<!--<ul>-->
-			<li class="list-styles">
-				
-				<span class="lefts">
-					<img src="../assets/list-clock.png" v-if="left=='clock'"/>
-					<span v-if="left!=='clock'&&left!=='none'" class="left-text">[ {{left}} ]&nbsp;&nbsp;&nbsp;&nbsp;</span>
-					<span>{{text}}</span>
-					<span v-if="diresption" class="description">{{diresption}}</span>
-				</span>
-				
-				<span class="list-dates">{{dates}}</span>
-			</li>
+			<router-link to="/detail">
+				<li class="list-styles">
+					<span class="lefts">
+						<img src="../assets/list-clock.png" v-if="left=='clock'"/>
+						<span v-if="left!=='clock'&&left!=='none'" class="left-text">[ {{left}} ]&nbsp;&nbsp;&nbsp;&nbsp;</span>
+						<span>{{text}}</span>
+						<span v-if="diresption" class="description">{{diresption}}</span>
+					</span>
+					<span class="list-dates">{{dates}}</span>
+				</li>
+			</router-link>
 		<!--</ul>-->
 	<!--</div>-->
 </template>
@@ -28,6 +28,12 @@
 			dates:[String],//none：右侧不显示日期，date：显示日期
 			text:[String],  //显示内容,黑体字
 			diresption:[String], //显示的描述信息,灰体字
+			newsId:[String],
+		},
+		methods:{
+			goDetails(){
+				
+			}
 		}
 	}
 </script>

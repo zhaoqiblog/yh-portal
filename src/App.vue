@@ -12,12 +12,13 @@ export default {
   name: 'App',
   computed:mapState({
 //  data: state => state.shop.supplement,
-    userGruop: state => state.user.userGruop
+    userGruop: state => state.user.userGruop,
+    user: state => state.user.user
   }),
   
   created(){
 //	http.get()
-		const obj={userNo:'',currentPage:1,pageSize:10}
+		const obj={userNo:this.user.userNo,currentPage:1,pageSize:10}
 //		const geiNavObj={channel:1,groupCode:JSON.parse(sessionStorage.userGroup)[1].code,userNo:''}
 		this.$store.dispatch({type:"updateUserGroup",data:obj})
 //		console.log(this.userGruop)

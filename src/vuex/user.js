@@ -1,7 +1,11 @@
 import http from '../service/index'
 export default {
 	state:{
-		user:{},//当前登录账户信息
+		user:{
+			userNo:'80733765',
+			channel:1,
+			groupCode:'YH01'
+		},//当前登录账户信息
 		userGroup:[], //用户组列表
 	},
 	mutations:{

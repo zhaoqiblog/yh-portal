@@ -7,7 +7,8 @@ import store from './vuex/store'
 //iview 组件引入 
 //import iView from 'iview'; //按需引入可以不在这里引入
 import 'iview/dist/styles/iview.css';
-
+ import promise from 'es6-promise'
+ promise.polyfill()
 //Vue.use(iView)
 Vue.config.productionTip = false
 

@@ -23,9 +23,12 @@ export default {
 		updateNoticeList(state,data){
 			state.noticeList = data
 		},
-		updateIndexAllList(state,payload){
+		setIndexAllList(state,payload){
 			state.indexAllList = payload.data
-		}
+		},
+//		updateIndexAllList(state,payload){
+//			state.indexAllList
+//		}
 	},
 	actions:{
 		addNoticeList({commit},data){
@@ -34,8 +37,8 @@ export default {
 		updateNoticeList({commit},data){
 			commit('updateNoticeList',data)
 		},
-		updateIndexAllList({commit},payload){
-			commit({type:'updateIndexAllList',data:payload.data})
+		setIndexAllList({commit},payload){
+			commit({type:'setIndexAllList',data:payload.data})
 		}
 	}
 }

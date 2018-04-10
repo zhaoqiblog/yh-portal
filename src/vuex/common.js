@@ -10,10 +10,10 @@ export default {
 	},
 	actions:{
 		updateNavList({commit},data){
-			http.get("/api/cms/column/v1/protected/show",data,(res)=>{
-//				console.log(res)
+//			http.get("/api/cms/column/v1/protected/show",data,(res)=>{
+////				console.log(res)
 				commit('navList',data)
-			})
+//			})
 			
 		}
 	}

@@ -137,6 +137,7 @@
 			.input-wrap{
 			    	margin: 0 160px 0 200px;
 			    	position: relative;
+			    	display: inline-block;
 				input{
 					/*background-color: #16285c;*/
 					width: 260px;border: none;border-radius: 16px;height: 32px;font-size: 14px;color: #59779F;padding-left: 16px;

@@ -5,8 +5,7 @@
 		<div class="details-wrap more-list-wrap">
 			<Breadcrumb separator=">">
 		        <BreadcrumbItem to="/">永辉门户</BreadcrumbItem>
-		        <BreadcrumbItem to="/">新闻资讯</BreadcrumbItem>
-		        <!--<BreadcrumbItem></BreadcrumbItem>-->
+		        <BreadcrumbItem :to="'/more/'+$route.params.type">新闻资讯</BreadcrumbItem>
 		    </Breadcrumb>
 		    <div class="content-wrap clearfix bgc">
 		    	<div class="artical-left fl">

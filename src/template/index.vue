@@ -9,7 +9,9 @@
 					<Tabs v-if="item.data.type!=='banner'" @on-click="clickTabs">
 						<TabPane :label="e.text" :key='e.id' :name="e.id" v-for="e,index1 in item.children">
 							<ul>
-								<List class="list-common" v-for="child,index2 in e.data.cmsArticles" v-if="index2<8" :id="child.id" :left="child.summary" :text="child.title" :dates='child.createDate' :key="index2"></List>
+								<List class="list-common" v-for="child,index2 in e.data.cmsArticles" v-if="index2<8" 
+									:id="child.id" :pid="child.columnInfoId" :txt="e.text" :left="child.summary" :text="child.title" :dates='child.createDate' :key="index2">
+								</List>
 							</ul>
 							<router-link :to="'/more/'+e.id">
 								<div class="more-info">
@@ -33,7 +35,9 @@
 							<Tabs>
 								<TabPane v-for="imgRight,index in item.children" v-if="index>0" :label="imgRight.text" :name="imgRight.id" :key="imgRight.id">
 									<ul>
-										<List class="list-common" v-for="right,index in imgRight.data.cmsArticles" :left="right.summary" :text="right.title" :dates='right.createDate' :key="right.id"></List>
+										<List class="list-common" v-for="right,index in imgRight.data.cmsArticles" 
+											:id="right.id" :pid="right.columnInfoId" :txt="imgRight.text" :left="right.summary" :text="right.title" :dates='right.createDate' :key="right.id">
+										</List>
 									</ul>
 									<router-link :to="'/more/'+imgRight.id">
 										<div class="more-info">
@@ -99,10 +103,24 @@
 					e.children.forEach((d, index1) => {
 						if(index1 == 0 && d.data.cmsArticles < 1) {
 							if(d.data.code == "todo" || d.data.code == "toread") {
-								this.pageObj.columnInfoId = d.id
+								this.pageObj.columnInfoId = d.id;
+								this.setInteceralId=d.id;
 								this.getNewsList(this.pageObj, (resData) => {
-//									console.log(resData)
+									if(resData){
+										let allLists=this.indexAllList
+										allLists.forEach((e,index)=>{
+											e.children.forEach((am,index)=>{
+												if(am.id==d.id){
+													am.data.cmsArticles=resData.content;
+//													console.log(am)
+												}
+											})
+										})
+									}else{
+										alert("请求出错！请重试")
+									}
 								})
+								
 							}else if(d.data.code='banners'){
 								//获取轮播图id
 								swipeId=d.id;
@@ -136,6 +154,27 @@
 
 		},
 		mounted() {
+			//定时器请求代办数据
+			let getParams = this.pageObj;
+			getParams.columnInfoId=this.setInteceralId
+			setInterval(()=>{
+				this.getNewsList(getParams, (resData) => {
+				if(resData){
+					let allLists=this.indexAllList
+					allLists.forEach((e,index)=>{
+						e.children.forEach((am,index)=>{
+//												console.log(am)
+							if(am.id==getParams.columnInfoId){
+								am.data.cmsArticles=resData.content;
+								console.log("ooo")
+							}
+						})
+					})
+				}else{
+					alert("请求出错！请重试")
+				}
+			})
+			},120000)
 		},
 		data() {
 			return {
@@ -185,6 +224,7 @@
 					columnInfoId: "",
 					groupCode: ""
 				},
+				setInteceralId:'',
 			}
 		},
 		methods: {
@@ -197,6 +237,9 @@
 					}
 					callback(obj)
 				})
+			},
+			setInteveralFun(id){
+				
 			},
 			goDetails() {
 				this.$router.push({
@@ -279,6 +322,14 @@
 			.common-board:nth-child(2) {
 				width: 518px;
 				margin: 10px 0 0 10px
+			}
+			.common-board:nth-child(6) {
+				margin-left: 0;
+				width: 518px;
+			}
+			.common-board:nth-child(7) {
+				margin-left: 10px;
+				width: 470px;
 			}
 			.content-body-left {
 				width: 118px;

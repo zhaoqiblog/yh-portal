@@ -1,7 +1,8 @@
 <template>
 	<!--<div class="lists">-->
 		<!--<ul>-->
-			<router-link :to="'/detail/'+id">
+			<!--:to="'/detail/'+id"-->
+			<router-link  :to="{name:'detail',query:{'id':id,'pid':pid,'txt':txt}}">
 				<li class="list-styles">
 					<span class="lefts">
 						<img src="../assets/list-clock.png" v-if="left=='clock'"/>
@@ -32,11 +33,13 @@
 			text:[String],  //显示内容,黑体字
 			diresption:[String], //显示的描述信息,灰体字
 			newsId:[String],
-			id:[String]
+			id:[String],
+			pid:[String],
+			txt:[String],
 		},
 		methods:{
 			goDetails(){
-				
+				this.$router.push()
 			}
 		}
 	}

@@ -5,8 +5,8 @@
 		<div class="details-wrap">
 			<Breadcrumb separator=">">
 		        <BreadcrumbItem to="/">永辉门户</BreadcrumbItem>
-		        <BreadcrumbItem to="/">新闻资讯</BreadcrumbItem>
-		        <BreadcrumbItem>新闻详情</BreadcrumbItem>
+		        <BreadcrumbItem :to="'/more/'+$route.query.pid">{{$route.query.txt}}</BreadcrumbItem>
+		        <BreadcrumbItem>{{$route.query.txt}}详情</BreadcrumbItem>
 		    </Breadcrumb>
 		    <div class="content-wrap clearfix bgc">
 		    	<div class="artical-left fl">
@@ -68,7 +68,7 @@
 			}
 		},
 		created(){
-			const id = this.$route.params.id;
+			const id = this.$route.query.id;
 			http.get("/api/cms/article/v1/protected/"+id,(res)=>{
 				
 				if(res.success==true){

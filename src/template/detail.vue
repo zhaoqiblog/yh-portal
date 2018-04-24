@@ -5,7 +5,7 @@
 		<div class="details-wrap">
 			<Breadcrumb separator=">">
 		        <BreadcrumbItem to="/">永辉门户</BreadcrumbItem>
-		        <BreadcrumbItem :to="'/more/'+$route.query.pid">{{$route.query.txt}}</BreadcrumbItem>
+		        <BreadcrumbItem :to="{name:'more',query:{id:$route.query.pid,name:$route.query.txt}}">{{$route.query.txt}}</BreadcrumbItem>
 		        <BreadcrumbItem>{{$route.query.txt}}详情</BreadcrumbItem>
 		    </Breadcrumb>
 		    <div class="content-wrap clearfix bgc">

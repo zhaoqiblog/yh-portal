@@ -5,7 +5,7 @@
 		<div class="details-wrap more-list-wrap">
 			<Breadcrumb separator=">">
 		        <BreadcrumbItem to="/">永辉门户</BreadcrumbItem>
-		        <BreadcrumbItem :to="'/more/'+$route.params.type">新闻资讯</BreadcrumbItem>
+		        <BreadcrumbItem :to="{name:'more',query:{id:$route.query.id,name:$route.query.name}}">{{$route.query.name}}</BreadcrumbItem>
 		    </Breadcrumb>
 		    <div class="content-wrap clearfix bgc">
 		    	<div class="artical-left fl">
@@ -66,7 +66,7 @@
 			})
 		},
 		created(){
-			this.pageObj={currentPage:1,pageSize:6,channel:this.user.channel,columnInfoId:this.$route.params.type,groupCode:this.user.groupCode}
+			this.pageObj={currentPage:1,pageSize:6,channel:this.user.channel,columnInfoId:this.$route.query.id,groupCode:this.user.groupCode}
 			this.getNewsList(this.pageObj)
 		},
 		methods:{

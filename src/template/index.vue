@@ -13,7 +13,7 @@
 									:id="child.id" :pid="child.columnInfoId" :txt="e.text" :left="child.summary" :text="child.title" :dates='child.createDate' :key="index2">
 								</List>
 							</ul>
-							<router-link :to="'/more/'+e.id">
+							<router-link :to="{name:'more',query:{id:e.id,name:e.text}}">
 								<div class="more-info">
 									<a href="#" class="active-color">查看更多 &gt; </a>
 								</div>
@@ -39,7 +39,7 @@
 											:id="right.id" :pid="right.columnInfoId" :txt="imgRight.text" :left="right.summary" :text="right.title" :dates='right.createDate' :key="right.id">
 										</List>
 									</ul>
-									<router-link :to="'/more/'+imgRight.id">
+									<router-link :to="{name:'more',query:{id:imgRight.id,name:'e.text'}}">
 										<div class="more-info">
 											<a href="#" class="active-color">查看更多 &gt; </a>
 										</div>
